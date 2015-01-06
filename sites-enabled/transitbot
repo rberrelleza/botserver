@@ -1,0 +1,21 @@
+server {
+	listen 80;
+    server_name transitbot.ramiroberrelleza.com;
+
+	root /botserver/static;
+	index 404.html
+
+	error_page 404 /404.html;
+
+	location /addon {
+		proxy_pass http://localhost:7070;
+	}
+
+	location /404.html {
+		internal;
+	}
+
+	location / {
+		internal;
+	}	
+}
